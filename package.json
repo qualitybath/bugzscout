@@ -1,0 +1,38 @@
+{
+  "name": "bugzscout",
+  "version": "0.0.1",
+  "description": "A Node library for easy bug reporting to fogbugz",
+  "main": "./lib",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha --report lcovonly"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qualitybath/bugzscout"
+  },
+  "keywords": [
+    "bugs",
+    "bugzscout",
+    "fogbugz",
+    "bugz"
+  ],
+  "author": "Seth Pollack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qualitybath/bugzscout/issues"
+  },
+  "homepage": "https://github.com/qualitybath/bugzscout",
+  "dependencies": {
+    "request": "^2.53.0"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2"
+  }
+}

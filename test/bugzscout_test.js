@@ -1,7 +1,7 @@
 var request = require('request'),
 sinon       = require('sinon'),
 expect      = require('chai').expect,
-BugzScout = require('../lib/bugzscout');
+BugzScout   = require('../lib/bugzscout');
 
 describe("bugzscout", function() {
 
@@ -14,18 +14,6 @@ describe("bugzscout", function() {
 					project: "my project",
 					area: "my area",
 					description: "testing 123"
-				});
-			}).to.throw(Error);
-
-		});
-
-		it("should fail without a description", function() {
-			expect(function() {
-				new BugzScout({
-					domain: "http://your.fogbugz.url/scoutSubmit.asp",
-					user: "my user",
-					project: "my project",
-					area: "my area"
 				});
 			}).to.throw(Error);
 
@@ -79,12 +67,11 @@ describe("bugzscout", function() {
 
 		it("should pass info to request", function() {
 			var bugzscout = new BugzScout({
-					domain: "http://your.fogbugz.url",
-					project: "my project",
-					user: "my user",
-					area: "my area",
-					description: "testing 123"
-				});
+				domain: "http://your.fogbugz.url",
+				project: "my project",
+				user: "my user",
+				area: "my area"
+			});
 
 			var expectedResponse = {
 				form: {
@@ -101,8 +88,25 @@ describe("bugzscout", function() {
 				url: "http://your.fogbugz.url/scoutSubmit.asp"
 			};
 
-			bugzscout.submit();
+			bugzscout.submit({
+				description: "testing 123"
+			});
+
 			sinon.assert.calledWith(request.post, expectedResponse);
+		});
+
+		it("should fail without a description", function() {
+			var bugzscout = new BugzScout({
+				domain: "http://your.fogbugz.url",
+				project: "my project",
+				user: "my user",
+				area: "my area",
+			});
+
+			expect(function() {
+				bugzscout.submit({});
+			}).to.throw(Error);
+
 		});
 
 	});

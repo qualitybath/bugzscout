@@ -6,7 +6,7 @@
 [![Coveralls](https://img.shields.io/coveralls/qualitybath/bugzscout.svg?style=flat-square)](https://coveralls.io/r/qualitybath/bugzscout)
 [![code climate](https://img.shields.io/codeclimate/github/qualitybath/bugzscout.svg?style=flat-square)](https://codeclimate.com/github/qualitybath/bugzscout)
 
-####Send automated crash reports to [fogbugz](http://www.fogcreek.com/fogbugz/) from Node.js applications using the bugzscout API
+####Send automated crash reports to [FogBugz](http://www.fogcreek.com/fogbugz/) from Node.js applications using the bugzscout API
 
 ```
 npm install bugzscout

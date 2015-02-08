@@ -7,7 +7,7 @@ describe("bugzscout", function() {
 
 	describe("constructor", function() {
 
-		it("should fail without a url", function() {
+		it("should fail without a domain", function() {
 			expect(function() {
 				new BugzScout({
 					user: "my user",
@@ -22,6 +22,7 @@ describe("bugzscout", function() {
 		it("should fail without a description", function() {
 			expect(function() {
 				new BugzScout({
+					domain: "http://your.fogbugz.url/scoutSubmit.asp",
 					user: "my user",
 					project: "my project",
 					area: "my area"
@@ -33,7 +34,7 @@ describe("bugzscout", function() {
 		it("should fail without a user", function() {
 			expect(function() {
 				new BugzScout({
-					url: "http://your.fogbugz.url/scoutSubmit.asp",
+					domain: "http://your.fogbugz.url/scoutSubmit.asp",
 					project: "my project",
 					area: "my area",
 					description: "testing 123"
@@ -45,7 +46,7 @@ describe("bugzscout", function() {
 		it("should fail without a project", function() {
 			expect(function() {
 				new BugzScout({
-					url: "http://your.fogbugz.url/scoutSubmit.asp",
+					domain: "http://your.fogbugz.url/scoutSubmit.asp",
 					user: "my user",
 					area: "my area",
 					description: "testing 123"
@@ -56,7 +57,7 @@ describe("bugzscout", function() {
 		it("should fail without a area", function() {
 			expect(function() {
 				new BugzScout({
-					url: "http://your.fogbugz.url/scoutSubmit.asp",
+					domain: "http://your.fogbugz.url",
 					project: "my project",
 					user: "my user",
 					description: "testing 123"
@@ -78,7 +79,7 @@ describe("bugzscout", function() {
 
 		it("should pass info to request", function() {
 			var bugzscout = new BugzScout({
-					url: "http://your.fogbugz.url/scoutSubmit.asp",
+					domain: "http://your.fogbugz.url",
 					project: "my project",
 					user: "my user",
 					area: "my area",

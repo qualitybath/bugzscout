@@ -13,9 +13,8 @@ describe("bugzscout", function() {
 					user: "my user",
 					project: "my project",
 					area: "my area",
-					description: "testing 123"
 				});
-			}).to.throw(Error);
+			}).to.throw(/You have to provide a domain/);
 
 		});
 
@@ -25,9 +24,8 @@ describe("bugzscout", function() {
 					domain: "http://your.fogbugz.url/scoutSubmit.asp",
 					project: "my project",
 					area: "my area",
-					description: "testing 123"
 				});
-			}).to.throw(Error);
+			}).to.throw(/You have to provide a user name/);
 
 		});
 
@@ -37,9 +35,8 @@ describe("bugzscout", function() {
 					domain: "http://your.fogbugz.url/scoutSubmit.asp",
 					user: "my user",
 					area: "my area",
-					description: "testing 123"
 				});
-			}).to.throw(Error);
+			}).to.throw(/You must provide a FogBugz project/);
 		});
 
 		it("should fail without a area", function() {
@@ -48,9 +45,8 @@ describe("bugzscout", function() {
 					domain: "http://your.fogbugz.url",
 					project: "my project",
 					user: "my user",
-					description: "testing 123"
 				});
-			}).to.throw(Error);
+			}).to.throw(/You have to provide an area/);
 		});
 	});
 
@@ -103,10 +99,23 @@ describe("bugzscout", function() {
 				area: "my area",
 			});
 
+			bugzscout.submit({}, function(e, r){
+				expect(e).to.match(/You have to provide a description/);
+			});
+
+		});
+
+		it('should not blow up if a callback is not passed in', function(){
+			var bugzscout = new BugzScout({
+				domain: "http://your.fogbugz.url",
+				project: "my project",
+				user: "my user",
+				area: "my area",
+			});
+
 			expect(function() {
 				bugzscout.submit({});
-			}).to.throw(Error);
-
+			}).to.not.throw();
 		});
 
 	});

@@ -112,6 +112,8 @@ describe("bugzscout", function() {
 				user: "my user",
 				area: "my area",
 			});
+			
+			sinon.assert.notCalled(request.post);
 
 			expect(function() {
 				bugzscout.submit({});

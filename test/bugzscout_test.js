@@ -86,14 +86,17 @@ describe("bugzscout", function() {
 				});
 
 			var expectedResponse = {
-				body: JSON.stringify({
-					ScoutUserName: "my user",
-					ScoutProject: "my project",
-					ScoutArea: "my area",
+				form: {
 					Description: "testing 123",
+					Email: undefined,
+					Extra: undefined,
 					ForceNewBug: false,
-					FriendlyResponse: 0
-				}),
+					FriendlyResponse: 0,
+					ScoutArea: "my area",
+					ScoutDefaultMessage: undefined,
+					ScoutProject: "my project",
+					ScoutUserName: "my user"
+				},
 				url: "http://your.fogbugz.url/scoutSubmit.asp"
 			};
 

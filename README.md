@@ -32,6 +32,18 @@ bugzscout.submit({
 	defaultMessage: "defaultMessage"
 });
 ```
+
+`submit` takes a callback as a second parameter
+
+```javascript
+bugzscout.submit({
+	description: "description",
+	extra: "extra",
+	defaultMessage: "defaultMessage"
+}, function(err, res){
+
+});
+```
 ###Available Fields
 * `domain` (required)
 * `user` (required)

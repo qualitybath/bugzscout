@@ -2,7 +2,7 @@
   "name": "bugzscout",
   "version": "0.0.3",
   "description": "A Node library for easy bug reporting to fogbugz",
-  "main": "./lib",
+  "main": "./lib/bugzscout",
   "directories": {
     "test": "test"
   },

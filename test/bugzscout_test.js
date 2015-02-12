@@ -74,7 +74,7 @@ describe("bugzscout", function() {
 					Description: "testing 123",
 					Email: undefined,
 					Extra: undefined,
-					ForceNewBug: false,
+					ForceNewBug: 0,
 					FriendlyResponse: 0,
 					ScoutArea: "my area",
 					ScoutDefaultMessage: undefined,
